@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torch One | Mobile Welding</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- INTRO ANIMATION SECTION -->
+    <div id="intro-screen">
+        <div class="logo-container">
+            <!-- REPLACE THIS SOURCE WITH YOUR ACTUAL LOGO FILE LATER -->
+            <img src="https://via.placeholder.com/300x300/000000/FF4500?text=TORCH+ONE" alt="Torch One Logo" id="main-logo">
+            <h1 class="flicker-text">ESTIMATING SYSTEM_V1.0</h1>
+        </div>
+    </div>
+
+    <!-- MAIN FORM SECTION -->
+    <div id="main-content" class="hidden">
+        <div class="container">
+            <header>
+                <h2>NEW JOB INQUIRY</h2>
+                <p>LAS VEGAS, NV // EST. 2024</p>
+            </header>
+
+            <!-- NETLIFY FORM SETUP -->
+            <form name="estimate-request" method="POST" data-netlify="true" enctype="multipart/form-data">
+                
+                <div class="form-group">
+                    <label>CLIENT NAME:</label>
+                    <input type="text" name="name" required placeholder="JOHN DOE">
+                </div>
+
+                <div class="form-group">
+                    <label>CONTACT PHONE:</label>
+                    <input type="tel" name="phone" required placeholder="555-0199">
+                </div>
+
+                <div class="form-group">
+                    <label>JOB LOCATION (Cross Streets):</label>
+                    <input type="text" name="location" required placeholder="SAHARA & DECATUR">
+                </div>
+
+                <div class="form-group">
+                    <label>JOB DESCRIPTION:</label>
+                    <textarea name="description" rows="4" required placeholder="DESCRIBE THE REPAIR..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>UPLOAD PHOTOS (MAX 5):</label>
+                    <div class="file-upload-wrapper">
+                        <input type="file" name="photos" multiple accept="image/*">
+                        <small>Limit: 5 Photos. Max 10MB Total.</small>
+                    </div>
+                </div>
+
+                <button type="submit" class="retro-btn">TRANSMIT REQUEST</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // THE BRAIN: This script handles the fade effect
+        window.addEventListener('load', () => {
+            const intro = document.getElementById('intro-screen');
+            const content = document.getElementById('main-content');
+            
+            // Wait 3 seconds for logo view, then fade out
+            setTimeout(() => {
+                intro.style.opacity = '0';
+                
+                // Remove intro from flow and show content
+                setTimeout(() => {
+                    intro.style.display = 'none';
+                    content.classList.remove('hidden');
+                    content.classList.add('fade-in');
+                }, 1000); // Wait for fade out to finish
+            }, 2500); // How long the logo stays on screen
+        });
+    </script>
+
+</body>
+</html>
